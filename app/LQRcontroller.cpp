@@ -8,6 +8,7 @@
  */
 
 #include "LQRcontroller.hpp"
+#include "sharedParam.hpp"
 
 LQRcontroller::LQRcontroller() {
   // TODO Auto-generated constructor stub
@@ -26,7 +27,7 @@ LQRcontroller::~LQRcontroller() {
  *   @return K and F that are used by reference
  */
 
-void LQRcontroller::lqrGains(struct shared *d, double *K, double *F) {
+void LQRcontroller::lqrGains(sharedParam *d, double *K, double *F) {
 
 }
 
@@ -38,7 +39,7 @@ void LQRcontroller::lqrGains(struct shared *d, double *K, double *F) {
  *   @return control output
  */
 
-double LQRcontroller::lqr(struct shared *d, double r, double K, double F) {
+double LQRcontroller::lqr(sharedParam *d, double r, double K, double F) {
   return 0.0;
 }
 
@@ -50,6 +51,6 @@ double LQRcontroller::lqr(struct shared *d, double r, double K, double F) {
  *   @return plant output
  */
 
-double LQRcontroller::plant(struct shared *d) {
+double LQRcontroller::plant(sharedParam *d) {
   return 0.0;
 }

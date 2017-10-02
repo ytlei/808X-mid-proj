@@ -8,14 +8,16 @@
  */
 #ifndef CPP_BOILERPLATE_INCLUDE_LQRCONTROLLER_HPP_
 #define CPP_BOILERPLATE_INCLUDE_LQRCONTROLLER_HPP_
+#include "sharedParam.hpp"
+
 
 class LQRcontroller {
  public:
   LQRcontroller();
   virtual ~LQRcontroller();
-  void lqrGains(struct shared *d, double *K, double *F);
-  double lqr(struct shared *d, double r, double K, double F);
-  double plant(struct shared *d);
+  void lqrGains(sharedParam *d, double *K, double *F);
+  double lqr(sharedParam *d, double r, double K, double F);
+  double plant(sharedParam *d);
 };
 
 #endif /* CPP_BOILERPLATE_INCLUDE_LQRCONTROLLER_HPP_ */

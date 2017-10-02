@@ -1,6 +1,8 @@
 # LQR controller for adaptive cruise control
 [![Build Status](https://travis-ci.org/ytlei/808X-mid-proj.svg?branch=master)](https://travis-ci.org/ytlei/808X-mid-proj)
 [![Coverage Status](https://coveralls.io/repos/github/ytlei/808X-mid-proj/badge.svg?branch=master)](https://coveralls.io/github/ytlei/808X-mid-proj?branch=master)
+[![License](https://img.shields.io/badge/license-%20BSD--3-blue.svg)](../master/LICENSE)
+
 ---
 
 ## Overview

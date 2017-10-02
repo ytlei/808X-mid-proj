@@ -9,12 +9,12 @@
 #define CPP_BOILERPLATE_INCLUDE_SHAREDPARAM_HPP_
 
 class sharedParam {
-private:
-	double x, u, dx;
+ private:
+  double x, u, dx;
 
-public:
-	sharedParam();
-	virtual ~sharedParam();
+ public:
+  sharedParam();
+  virtual ~sharedParam();
 };
 #endif /* CPP_BOILERPLATE_INCLUDE_SHAREDPARAM_HPP_ */
 

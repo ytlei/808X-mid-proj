@@ -8,11 +8,11 @@
 #include "ssSystem.hpp"
 
 ssSystem::ssSystem() {
-	// TODO Auto-generated constructor stub
+  // TODO Auto-generated constructor stub
 
 }
 
 ssSystem::~ssSystem() {
-	// TODO Auto-generated destructor stub
+  // TODO Auto-generated destructor stub
 }
 

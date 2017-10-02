@@ -8,11 +8,11 @@
 #define CPP_BOILERPLATE_INCLUDE_SSSYSTEM_HPP_
 
 class ssSystem {
-private:
-	double A, B, C;
-public:
-	ssSystem();
-	virtual ~ssSystem();
+ private:
+  double A, B, C;
+ public:
+  ssSystem();
+  virtual ~ssSystem();
 };
 
 #endif /* CPP_BOILERPLATE_INCLUDE_SSSYSTEM_HPP_ */

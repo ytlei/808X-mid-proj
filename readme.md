@@ -17,12 +17,13 @@ The interface will be:
 	Inputs: Read data from randomly generated speed to simulate car speed.
 	Outputs: Generate corresponding speed according to the input.
 
+The result should me a string of speed number output that tries to catch up with the input values like a adaptive cruise control should be.
 
 ## Current status
 
 Under early stage development. Planned to be finished by 10/17/2017
 
-## Standard install via command-line
+## How to build
 ```
 git clone --recursive https://github.com/ytlei/808X-mid-proj.git
 cd <path to repository>
@@ -34,5 +35,12 @@ Run tests: ./test/cpp-test
 Run program: ./app/shell-app
 ```
 
+## How to demo
 
+My plan is to prepare a string line of speed as a mimic of real car speed input, and the output should be a string line of numbers trying to follow that speed.
+
+## How to run test
+```
+Run tests: ./test/cpp-test
+```
 

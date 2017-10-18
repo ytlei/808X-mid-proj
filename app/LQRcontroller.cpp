@@ -102,8 +102,6 @@ void LQRcontroller::controllerThread() {
 	//char line[BUF];
 	int n = 0;
 
-	//struct shared *d = (struct shared*) arg;  //cast to struct pointer
-
 	//compute the control gains
 	double K = 0;
 	double F = 0;
@@ -112,7 +110,7 @@ void LQRcontroller::controllerThread() {
 	string line;
 	ifstream speedFile("speed1.txt");
 	//open the setpointvalues.txt file
-	//FILE *in = fopen("setpointvalues.txt", "r");
+
 	if (!speedFile) {
 		printf("unable to read setpointvalues.txt\n");
 		return;
@@ -159,7 +157,6 @@ void LQRcontroller::plantThread() {
 
 		//stop when there are no more setpoints to read
 		if (d->eof) {
-
 			break;
 		}
 

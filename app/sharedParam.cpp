@@ -8,13 +8,14 @@
 #include "sharedParam.hpp"
 
 sharedParam::sharedParam() {
-  x=0;
-  u=0;
-  dx=0;
-  *sys = new ssSystem(0,0,0);
+	x = 0;
+	u = 0;
+	dx = 0;
+	eof = false;
+	*sys = new ssSystem(0, 0, 0);
 }
 
 sharedParam::~sharedParam() {
-  // TODO Auto-generated destructor stub
+	// TODO Auto-generated destructor stub
 }
 

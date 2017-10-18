@@ -13,7 +13,7 @@
 class sharedParam {
  private:
   double x, u, dx;
-  ssSystem sys;
+  ssSystem *sys;
  public:
   sharedParam();
   virtual ~sharedParam();

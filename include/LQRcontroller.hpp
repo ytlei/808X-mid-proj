@@ -10,7 +10,6 @@
 #define CPP_BOILERPLATE_INCLUDE_LQRCONTROLLER_HPP_
 #include "sharedParam.hpp"
 
-
 class LQRcontroller {
  public:
   LQRcontroller();
@@ -18,6 +17,8 @@ class LQRcontroller {
   void lqrGains(sharedParam *d, double *K, double *F);
   double lqr(sharedParam *d, double r, double K, double F);
   double plant(sharedParam *d);
+  void controllerThread();
+  void plantThread();
 };
 
 #endif /* CPP_BOILERPLATE_INCLUDE_LQRCONTROLLER_HPP_ */

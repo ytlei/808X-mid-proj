@@ -8,8 +8,10 @@
 #include "sharedParam.hpp"
 
 sharedParam::sharedParam() {
-  // TODO Auto-generated constructor stub
-
+  x=0;
+  u=0;
+  dx=0;
+  *sys = new ssSystem(0,0,0);
 }
 
 sharedParam::~sharedParam() {

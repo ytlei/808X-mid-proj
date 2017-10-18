@@ -6,26 +6,19 @@
  *  @Created on: Oct 1, 2017
  *  @Author: yitinglei
  */
-
-#include "LQRcontroller.hpp"
-#include "sharedParam.hpp"
-#include "ssSystem.hpp"
-
 #include <cmath>
 #include <ctime>
 #include <iostream>
 #include <fstream>
 #include <string>
-
-using namespace std;
+#include "LQRcontroller.hpp"
+#include "sharedParam.hpp"
+#include "ssSystem.hpp"
 
 LQRcontroller::LQRcontroller() {
-	// TODO Auto-generated constructor stub
-
 }
 
 LQRcontroller::~LQRcontroller() {
-	// TODO Auto-generated destructor stub
 }
 
 /**
@@ -125,13 +118,10 @@ void LQRcontroller::controllerThread() {
 			double r;
 			r = std::stod(line);
 			cout << line << '\n';
-			param->u = lqr(param, r, K, F); //calculate the current control output
+			param->u = lqr(param, r, K, F);  //calculate the current control output
 		}
 		speedFile.close();
 	}
-
-	//fclose(in);
-
 }
 void LQRcontroller::plantThread() {
 	struct timespec sleepValue;
@@ -139,8 +129,6 @@ void LQRcontroller::plantThread() {
 	sleepValue.tv_nsec = 100000000;  // 0.1s
 
 	sharedParam *d = new sharedParam();
-
-	//struct shared *d = (struct shared*) arg;  //cast to struct pointer
 
 	//open the setpointvalues.txt file
 	string line;
@@ -170,5 +158,4 @@ void LQRcontroller::plantThread() {
 	}
 	speedOutFile.close();
 	cout << i << " output values written to out.txt" << endl;
-
 }

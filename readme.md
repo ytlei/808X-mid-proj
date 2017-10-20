@@ -21,7 +21,11 @@ The result should me a string of speed number output that tries to catch up with
 
 ## Current status
 
-Under early stage development. Planned to be finished by 10/17/2017
+working on controllerThread. facing some problem with file reading and converting.
+
+## Product backlog
+
+https://docs.google.com/spreadsheets/d/1HN7IqEm0FeV0GmGV38lHQUc4AzAFNKIn4hba17Cglr0/edit?usp=sharing
 
 ## How to build
 ```

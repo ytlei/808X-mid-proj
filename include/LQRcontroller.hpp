@@ -14,7 +14,7 @@ class LQRcontroller {
  public:
   LQRcontroller();
   virtual ~LQRcontroller();
-  void lqrGains(sharedParam *d, double *K, double *F);
+  void lqrGains(sharedParam *d, double K, double F);
   double lqr(sharedParam *d, double r, double K, double F);
   double plant(sharedParam *d);
   void controllerThread();

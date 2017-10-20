@@ -29,7 +29,7 @@ LQRcontroller::~LQRcontroller() {
  *   @return K and F that are used by reference
  */
 
-void LQRcontroller::lqrGains(sharedParam *d, double *K, double *F) {
+void LQRcontroller::lqrGains(sharedParam *d, double K, double F) {
 	//state-space model
 	double A = d->sys->getA();
 	double B = d->sys->getB();
@@ -45,8 +45,8 @@ void LQRcontroller::lqrGains(sharedParam *d, double *K, double *F) {
 	double P = -(p) / 2 - sqrt((p / 2) * (p / 2) - q); //important to choose the second solution here
 
 	//gains
-	*K = (B * P * A) / (R + B * P * B);
-	*F = 1 / (C * B / (1 - (A + B * *K)));
+	K = (B * P * A) / (R + B * P * B);
+	F = 1 / (C * B / (1 - (A + B * *K)));
 }
 
 /**
@@ -98,10 +98,10 @@ void LQRcontroller::controllerThread() {
 	//compute the control gains
 	double K = 0;
 	double F = 0;
-	lqrGains(param, &K, &F);
+	lqrGains(param, K, F);
 
-	string line;
-	ifstream speedFile("speed1.txt");
+	std::string line;
+	std::ifstream speedFile("speed1.txt");
 	//open the setpointvalues.txt file
 
 	if (!speedFile) {
@@ -111,12 +111,10 @@ void LQRcontroller::controllerThread() {
 
 	int i = 0;
 
-	//read setpoints line by line
-
-	if (speedFile.is_open()) {
+	if (speedFile.is_open()) { //read setpoints line by line
 		while (getline(speedFile, line)) {
 			double r;
-			r = std::stod(line);
+			r = std::stod(&line[0]);
 			cout << line << '\n';
 			param->u = lqr(param, r, K, F);  //calculate the current control output
 		}
@@ -130,32 +128,29 @@ void LQRcontroller::plantThread() {
 
 	sharedParam *d = new sharedParam();
 
-	//open the setpointvalues.txt file
-	string line;
-	ofstream speedOutFile("speedOut.txt");
+	std::string line;
+	std::ofstream speedOutFile("speedOut.txt"); //open the speedOut.txt file
 
 	if (!speedOutFile.is_open()) {
-		cout << "unable to open out.txt" << endl;
+		std::cout << "unable to open out.txt" << std::endl;
 		return;
 	}
 
 	int i = 0;
 
 	while (1) {
-
-		//stop when there are no more setpoints to read
-		if (d->eof) {
+		if (d->eof) { //stop when there are no more setpoints to read
 			break;
 		}
 
 		d->dx = d->x;        //next cycle
 		double y = plant(d);    //compute current plant output
-		speedOutFile << y << endl;
-		cout << "u:" << d->u << " y:" << y;
+		speedOutFile << y << std::endl;
+		std::cout << "u:" << d->u << " y:" << y;
 
 		nanosleep(&sleepValue, NULL);
 		i++;
 	}
 	speedOutFile.close();
-	cout << i << " output values written to out.txt" << endl;
+	std::cout << i << " output values written to out.txt" << std::endl;
 }
